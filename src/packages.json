@@ -1,0 +1,81 @@
+{
+	"Packages": [{
+			"Name": "Essential",
+			"BasePrice": 1000,
+			"Type": [{
+					"Name": "Quarterly",
+					"Discount": "5",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Half Yearly",
+					"Discount": "7",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Yearly",
+					"Discount": "9",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				}
+			]
+		},
+		{
+			"Name": "Value",
+			"BasePrice": 1500,
+			"Type": [{
+					"Name": "Quarterly",
+					"Discount": "5",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Half Yearly",
+					"Discount": "7",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Yearly",
+					"Discount": "9",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				}
+			]
+		},
+		{
+			"Name": "Premiuim",
+			"BasePrice": 2000,
+			"Type": [{
+					"Name": "Quarterly",
+					"Discount": "5",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Half Yearly",
+					"Discount": "7",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				},
+				{
+					"Name": "Yearly",
+					"Discount": "9",
+					"Percentage": "0",
+					"Quantity": "0",
+					"SubTotal": "0"
+				}
+			]
+		}
+	]
+}

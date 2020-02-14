@@ -1,0 +1,79 @@
+<h1>Calculator</h1>
+<table mdbTable striped="true" bordered="true">
+        <thead>
+          <tr>
+            <th scope="col">Package</th>
+            <th scope="col">Rate</th>
+            <th scope="col">%</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol>
+            <th scope="row">Premium (Per Annum)</th>
+            <td>₹6000</td>
+            <!-- <form #premiumForm="ngForm" (ngSubmit)="submitPremium(premiumForm)"> -->
+              
+            <td><input #percentagePre type="number" (focusout)="percentPre(percentagePre.value)"></td>
+            <td>
+                <input #quantityPre  type="number" (focusout)="quantPre(quantityPre.value)">
+            </td>
+        <!-- </form> -->
+            <td>₹10000</td>
+          </tr>
+          <tr mdbTableCol>
+                 <!-- <form #essForm="ngForm" (ngSubmit)="submitEssesential(essForm)"> -->
+                <th scope="row">Essesntial (Per Annum)</th>
+                <td>₹4500</td>
+                <td><input type="number" ngModel #percentageEss="ngModel" name="percentageEss" min="1"></td>
+                <td><input type="number" ngModel #quantityEss name="quantityEss" min="1"></td>
+                <td>`₹6500</td>
+                <!-- </form> -->
+              </tr>
+              <tr mdbTableCol>
+                    <th scope="row">Value (Per Annum)</th>
+                    <td>₹3000</td>
+                    <!-- <form #valForm="ngForm" (ngSubmit)="submitValue(valForm)"> -->
+                    <td><input type="number" ngModel #percentageVal name="percentageVal" min="1"></td>
+                    <td><input type="number" name="quantityVal" min="1"></td>
+                    <td>₹10000</td>
+                    <!-- </form> -->
+                  </tr>
+        </tbody>
+      </table>
+
+      <table mdbTable striped="true" bordered="true">
+            <thead>
+              <tr>
+                <th scope="col">Additional</th>
+                <th scope="col">Rate</th>
+                <th scope="col">%</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr mdbTableCol>
+                <th scope="row">Company</th>
+                <td>₹6000</td>
+                <td><input type="number" name="percentagePre" min="1"></td>
+                <td><input type="number" name="quantityPre" min="1"></td>
+                <td>₹10000</td>
+              </tr>
+              <tr mdbTableCol>
+                    <th scope="row">Users</th>
+                    <td>₹4500</td>
+                    <td><input type="number" name="percentageEss" min="1"></td>
+                    <td><input type="number" name="quantityEss" min="1"></td>
+                    <td>₹6500</td>
+                  </tr>
+                  <tr mdbTableCol>
+                        <th scope="row">Virtual Assistants</th>
+                        <td>₹3000</td>
+                        <td><input type="number" name="percentageVal" min="1"></td>
+                        <td><input type="number" name="quantityVal" min="1"></td>
+                        <td>₹10000</td>
+                      </tr>
+            </tbody>
+          </table>

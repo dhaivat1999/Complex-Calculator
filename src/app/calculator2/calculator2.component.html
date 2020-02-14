@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tablePackage {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tableAddons {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            padding-bottom: 30px;
+        }
+
+        .tableTotal {
+            padding-top: 50px;
+            padding-right: 50%;
+            align-self: right;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        th {
+            font-weight: bold
+        }
+
+        .darkbackground {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Package Table</h2>
+    <div class="row header">
+        <div class="col-md-4">Packages</div>
+        <div class="col-md-2">Rate</div>
+        <div class="col-md-2">Percent</div>
+        <div class="col-md-2">Quantity</div>
+        <div class="col-md-2">Sub Total</div>
+    </div>
+    <div class="row" *ngFor="let package of packages">
+        <div class="col-md-8">{{package.Name}}</div>
+        <div class="col-md-4">{{package.BasePrice}}</div>
+        <!-- {{package | json}} -->
+        <div class="col-md-12">
+
+
+            <div class="row" *ngFor="let type of package.Type">
+                <div class="col-md-4">{{type.Name}}</div>
+                <div class="col-md-2">{{type.Discount}}</div>
+                <div class="col-md-2">{{type.Percentage}}</div>
+                <div class="col-md-2">{{type.Quantity}}</div>
+                <div class="col-md-2">{{type.SubTotal}}</div>
+            </div>
+        </div>
+    </div>
+<hr>
+    <div class="row header">
+        <div class="col-md-4">Add-ons</div>
+        <div class="col-md-2">Rate</div>
+        <div class="col-md-2">Percentage</div>
+        <div class="col-md-2">Quantity</div>
+        <div class="col-md-2">SubTotal</div>
+    </div>
+    <div class="row" *ngFor="let additional of additionals">
+        <div class="col-md-4">{{additional.Name}}</div>
+        <div class="col-md-2">{{additional.Rate}}</div>
+        <div class="col-md-2">{{additional.Percentage}}</div>
+        <div class="col-md-2">{{additional.Quantity}}</div>
+        <div class="col-md-2">{{additional.SubTotal}}</div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 
+    <table class="tablePackage">
+        <thead>
+            <tr>
+                <th>Packages</th>
+                <th>Rate</th>
+                <th>%</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let package of packages">
+                <td></td>
+            </tr>
+        </tbody>
+        <tr *ngFor="let package of packages">
+            <th colspan="4" class="darkbackground">{{package.Name}}</th>
+            <th>{{package.BasePrice}}</th>
+        </tr>
+        <tr *ngFor="let type of packages.Type">
+            <td>{{type.Name}}</td>
+            <td><input #percentagePreQua type="number" min="1" max="100"></td>
+            <td><input #quantityPreQua type="number"
+                    (focusout)="preQuarter(percentagePreQua.value,quantityPreQua.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subPreQuarter}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Half Yearly</td>
+            <td>₹700</td>
+            <td><input #percentagePreHalf type="number" min="1" max="100"></td>
+            <td><input #quantityPreHalf type="number"
+                    (focusout)="preHalf(percentagePreHalf.value,quantityPreHalf.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subPreHalf}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Yearly</td>
+            <td>₹1000</td>
+            <td><input #percentagePreYear type="number" min="1" max="100"></td>
+            <td><input #quantityPreYear type="number"
+                    (focusout)="preYear(percentagePreYear.value,quantityPreYear.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subPreYear}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="5" class="darkbackground">Value</th>
+        </tr>
+        <tr>
+            <td>Quarterly</td>
+            <td>₹300</td>
+            <td><input #percentageValQua type="number" min="1" max="100"></td>
+            <td><input #quantityValQua type="number"
+                    (focusout)="valQuarter(percentageValQua.value,quantityValQua.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subValQuarter}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Half Yearly</td>
+            <td>₹500</td>
+            <td><input #percentageValHalf type="number" min="1" max="100"></td>
+            <td><input #quantityValHalf type="number"
+                    (focusout)="valHalf(percentageValHalf.value,quantityValHalf.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subValHalf}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Yearly</td>
+            <td>₹800</td>
+            <td><input #percentageValYear type="number" min="1" max="100"></td>
+            <td><input #quantityValYear type="number"
+                    (focusout)="valYear(percentageValYear.value,quantityValYear.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subValYear}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="5" class="darkbackground">Essential</th>
+        </tr>
+        <tr>
+            <td>Quarterly</td>
+            <td>₹200</td>
+            <td><input #percentageEssQua type="number" min="1" max="100"></td>
+            <td><input #quantityEssQua type="number"
+                    (focusout)="essQuarter(percentageEssQua.value,quantityEssQua.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subEssQuarter}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Half Yearly</td>
+            <td>₹400</td>
+            <td><input #percentageEssHalf type="number" min="1" max="100"></td>
+            <td><input #quantityEssHalf type="number"
+                    (focusout)="essHalf(percentageEssHalf.value,quantityEssHalf.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subEssHalf}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Yearly</td>
+            <td>₹700</td>
+            <td><input #percentageEssYear type="number" min="1" max="100"></td>
+            <td><input #quantityEssYear type="number"
+                    (focusout)="essYear(percentageEssYear.value,quantityEssYear.value)" min="1" max="100"></td>
+            <td>
+                <p>₹{{subEssYear}}</p>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Add-Ons Table</h2>
+    <table class="tableAddons">
+        <tr>
+            <th>Additional</th>
+            <th>Rate</th>
+            <th>%</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+        <tr>
+            <th>Company</th>
+            <td>₹500</td>
+            <td><input #percentageADC type="number" min="1" max="100"></td>
+            <td><input #quantityADC type="number" (focusout)="addonCompany(percentageADC.value,quantityADC.value)"
+                    min="1" max="100"></td>
+            <td>
+                <p>₹{{subADOC}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>Users</th>
+            <td>₹600</td>
+            <td><input #percentageADU type="number" min="1" max="100"></td>
+            <td><input #quantityADU type="number" (focusout)="addonUser(percentageADU.value,quantityADU.value)" min="1"
+                    max="100"></td>
+            <td>
+                <p>₹{{subADOU}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>Virtual Assistants</th>
+            <td>₹700</td>
+            <td><input #percentageADVA type="number" min="1" max="100"></td>
+            <td><input #quantityADVA type="number" (focusout)="addonVAssistant(percentageADVA.value,quantityADVA.value)"
+                    min="1" max="100"></td>
+            <td>
+                <p>₹{{subADOV}}</p>
+            </td>
+        </tr>
+    </table>
+
+    <table class="tableTotal">
+        <tr>
+            <th colspan="2">
+                Total
+            </th>
+            <td>
+                {{sumTotal}}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                GST (18%)
+            </th>
+            <td>
+                {{gstAmount}}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                Gross Total
+            </th>
+            <td>
+                {{grossTotal}}
+            </td>
+        </tr>
+
+
+    </table> -->

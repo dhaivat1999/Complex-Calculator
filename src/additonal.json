@@ -1,0 +1,21 @@
+{
+	"Additionals": [{
+		"Name": "Company",
+		"Rate": "500",
+		"Percentage": "0",
+		"Quantity": "0",
+		"SubTotal": "0"
+	}, {
+		"Name": "User",
+		"Rate": "700",
+		"Percentage": "0",
+		"Quantity": "0",
+		"SubTotal": "0"
+	}, {
+		"Name": "Virtual Assistant",
+		"Rate": "900",
+		"Percentage": "0",
+		"Quantity": "0",
+		"SubTotal": "0"
+	}]
+}
